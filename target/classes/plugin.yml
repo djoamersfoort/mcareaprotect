@@ -1,0 +1,18 @@
+name: areaprotect
+main: nl.sverben.EersteClass
+version: "1.0"
+api-version: "1.16"
+
+commands:
+  rstart:
+    description: Start Selecting
+    usage: /rstart
+  rstop:
+    description: Stop Selecting
+    usage: /rstop
+  rclear:
+    description: Clear everything
+    usage: /rclear
+  rcarea:
+    description: Clears the current area
+    usage: /rcarea
