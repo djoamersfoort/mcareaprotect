@@ -16,3 +16,12 @@ commands:
   rcarea:
     description: Clears the current area
     usage: /rcarea
+  rpause:
+    description: pauses protection
+    usage: /rpause
+  runpause:
+    description: unpauses protection
+    usage: /runpause
+  rshow:
+    description: shows areas
+    usage: /rshow

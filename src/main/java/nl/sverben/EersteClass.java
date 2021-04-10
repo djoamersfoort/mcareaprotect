@@ -5,30 +5,20 @@ import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
-import org.bukkit.event.block.BlockExplodeEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityChangeBlockEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.server.ServerCommandEvent;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.util.io.BukkitObjectOutputStream;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.logging.Logger;
-import java.util.zip.GZIPOutputStream;
 
 public class EersteClass extends JavaPlugin implements Listener {
-
-
     @Override
     public void onEnable() {
         Logger logger = getLogger();
@@ -193,6 +183,33 @@ public class EersteClass extends JavaPlugin implements Listener {
                     configReload();
                 } catch (IOException e) {
                     e.printStackTrace();
+                }
+
+            }
+
+            else if (cmd.getName().equalsIgnoreCase("rpause")){
+                if (!player.isOp()) {
+                    player.sendMessage(ChatColor.RED + "You are not op");
+                    return false;
+                }
+                areas.clear();
+            } else if (cmd.getName().equalsIgnoreCase("runpause")) {
+                if (!player.isOp()) {
+                    player.sendMessage(ChatColor.RED + "You are not op");
+                    return false;
+                }
+                try {
+                    configReload();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } else if (cmd.getName().equalsIgnoreCase("rshow")){
+                if (!player.isOp()) {
+                    player.sendMessage(ChatColor.RED + "You are not op");
+                    return false;
+                }
+                for(Area area: areas) {
+                    area.Show(player.getWorld(), this);
                 }
 
             }
